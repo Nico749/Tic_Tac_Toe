@@ -9,7 +9,7 @@
     <title>Tic Tac Toe</title>
 </head>
 <body>
-    <div id="board x" class="board">
+    <div id="board" class="board circle">
         <div class="cell x" data-cell> </div>
         <div class="cell circle" data-cell></div>
         <div class="cell" data-cell></div>
@@ -20,8 +20,8 @@
         <div class="cell" data-cell></div>
         <div class="cell" data-cell></div>
     </div>
-    <div class="winning-message">
-        <div data-winning-message-text></div>
+    <div class="winning-message" id="winningMessage">
+        <div data-winning-message-text>X Wins!</div>
         <button id ="restartButton">Restart</button>
     </div>
 </body>
