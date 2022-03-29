@@ -5,8 +5,8 @@
 
 :root{
     --cell-size:100px;
-    /* setting mark size as 90% of the cell size  cal==calculate */
-    --mark-size:cal(var(--cell-size)*.9)
+    /* setting mark size as 90% of the cell size  calc==calculate */
+    --mark-size:calc(var(--cell-size)*.9)
 }
 
 body{
@@ -29,6 +29,11 @@ body{
     width:var(--cell-size);
     height: var(--cell-size);
     border:2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
 }
 /* removing external borders targeting external cells*/
 .cell:first-child,
@@ -52,3 +57,47 @@ body{
     border-left: none;
 }
 
+.cell.x,
+.cell.circle{
+    cursor: not-allowed;
+}
+
+.board.x .cell
+
+/* creating X and O inside the cells */
+.cell.x::before,
+.cell.x::after{
+   content:"";
+   position: absolute;
+   width:calc(var(--mark-size)*.15);
+   height:var(--mark-size);
+   background-color:black;
+}
+
+.cell.x::before{
+    transform: rotate(45deg);
+}
+
+.cell.x::after{
+    transform: rotate(-45deg);
+}
+
+.cell.circle::before,
+.cell.circle::after{
+   content:"";
+   position: absolute;
+   border-radius: 50%;
+   
+}
+
+.cell.circle::before{
+    width:var(--mark-size);
+   height:var(--mark-size);
+    background-color:black;
+}
+
+.cell.circle::after{
+    width:calc(var(--mark-size)*.7);
+    height:calc(var(--mark-size)*.7);
+   background-color: white;
+}
