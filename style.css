@@ -1,0 +1,54 @@
+/* make it easier to style */
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+:root{
+    --cell-size:100px;
+    /* setting mark size as 90% of the cell size  cal==calculate */
+    --mark-size:cal(var(--cell-size)*.9)
+}
+
+body{
+    margin: 0;
+}
+
+.board{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    justify-items: center;
+    /* make the cells displaying as a square and not vertically aligned */
+    grid-template-columns: repeat(3, auto);
+}
+
+.cell{
+    width:var(--cell-size);
+    height: var(--cell-size);
+    border:2px solid black;
+}
+/* removing external borders targeting external cells*/
+.cell:first-child,
+.cell:nth-child(2),
+.cell:nth-child(3){
+    border-top: none;
+}
+.cell:nth-child(7),
+.cell:nth-child(8),
+.cell:nth-child(9){
+    border-bottom: none;
+}
+.cell:nth-child(3),
+.cell:nth-child(6),
+.cell:nth-child(9){
+    border-right: none;
+}
+.cell:first-child,
+.cell:nth-child(4),
+.cell:nth-child(7){
+    border-left: none;
+}
+
